@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    {% for article in articles %}
+        <h1><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h1>
+        <ul class="topics">
+            {% drilldown_tree_for_node article.topic as topics %}
+            {% for topic in topics %}
+                <li><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></li>
+            {% endfor %}
+        </ul>
+        <p>{{ article.body|striptags|truncatechars:200 }}</p>
+        <div class="tags">
+        {% for tag in article.tags.all %}
+            {{ tag }}
+            {{ tag.slug }}
+        {% endfor %}
+        </div>
+    {% empty %}
+        没有文章
+    {% endfor %}
+    {% if is_paginated %}
+        {% include 'article/_pagination.html' with page=page_obj %}
+    {% endif %}
+{% endblock %}

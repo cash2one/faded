@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ topic.name }}{% endblock %}
+
+{% block content %}
+    {% drilldown_tree_for_node topic as topics %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="/">首页</a>
+        </li>
+    </ol>
+
+    <h1>{{ tag.name }}</h1>
+    {% for article in articles %}
+        <h2><a href="{{ article.get_absolute_url }}">{{ article.title }}</a></h2>
+        <p>{{ article.body|striptags|truncatechars:200 }}</p>
+    {% empty %}
+        没有文章
+    {% endfor %}
+    {% if is_paginated %}
+        {% include 'article/_pagination.html' with page=page_obj %}
+    {% endif %}
+{% endblock %}

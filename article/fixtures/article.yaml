@@ -1,0 +1,95 @@
+
+- model: article.topic
+  id: 1
+  fields:
+    name: 新闻
+    description: 一些新闻
+    slug: news
+    lft: 0
+    rght: 2
+    tree_id: 1
+    level: 1
+
+- model: article.article
+  id: 1
+  fields:
+    title: test11
+    slug: test11
+    body: sdsd
+    topic: 1
+    view_count: 1
+    status: published
+    publish: 2017-02-01 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1
+
+- model: article.article
+  id: 2
+  fields:
+    title: test22
+    slug: test22
+    body: sdsdddss
+    topic: 1
+    view_count: 2
+    status: published
+    publish: 2017-02-02 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1
+
+- model: article.article
+  id: 3
+  fields:
+    title: test33
+    slug: test33
+    body: sdsdddss
+    topic: 1
+    view_count: 2
+    status: published
+    publish: 2017-02-03 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1
+
+- model: article.article
+  id: 4
+  fields:
+    title: test44
+    slug: test44
+    body: sdsdddss
+    topic: 1
+    view_count: 2
+    status: published
+    publish: 2017-02-04 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1
+
+- model: article.article
+  id: 5
+  fields:
+    title: test55
+    slug: test55
+    body: sdsdddss
+    topic: 1
+    view_count: 2
+    status: published
+    publish: 2017-02-05 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1
+
+- model: article.article
+  id: 6
+  fields:
+    title: test66
+    slug: test66
+    body: sdsdddss
+    topic: 1
+    view_count: 2
+    status: draft
+    publish: 2017-02-06 14:16:34.758011
+    created: 2017-02-20 14:16:34.758011
+    updated: 2017-02-20 14:16:34.758011
+    author_id: 1

@@ -1,0 +1,32 @@
+{% extends "admin/base.html" %}
+{% block title %}{{ title }} | {{ site.name }} 管理{% endblock %}
+{% block stylesheet %}{% static "faded/css/admin.css" %}{% endblock %}
+
+{% block branding %}
+<h1 id="site-name"><a href="{% url 'admin:index' %}">{{ site.name }} 管理</a></h1>
+{% endblock %}
+
+{% block nav-global %}
+{% endblock %}
+
+{% block footer %}
+    {% if not is_popup %}
+    <div id="aside">
+        <ul class="apps-menu">
+            {% for app in available_apps %}
+                <li id="app-{{ app.app_label }}">
+                    <a href="javascript:void(0);">{{ app.name }}</a>
+                    {% if app.models %}
+                        <ul class="models-menu">
+                            {% for model in app.models %}
+                                <li class="{% if module_name == model.name %}active{% endif %}"><a href="{{ model.admin_url }}"><i class="icon icon-{{ model.object_name|lower }}"></i> {{ model.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    {% endif %}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {{ block.super }}
+{% endblock %}

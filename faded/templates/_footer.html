@@ -1,0 +1,28 @@
+<div id="footer">
+    <div class="container">
+        <div class="logo">{{ site.name }}</div>
+        <ul class="social-list">
+            <li>
+                <a href="{% static 'article/img/qrcode.png' %}" class="social-link" target="_blank" id="wechat">微信</a>
+            </li>
+            <li>
+                <a href="http://wpa.b.qq.com/cgi/wpa.php?ln=1&key=XzkzODAxODc0NF8yNDc1ODlfNDAwMDI4NTIxMl8yXw" class="social-link" target="_blank" id="qq">QQ</a>
+            </li>
+            <li>
+                <a href="http://weibo.com/u/5322235541" class="social-link" target="_blank" id="weibo">微博</a>
+            </li>
+            <li>
+                <a href="mailto:market@joyotime.com" class="social-link" target="_blank" id="email">电子邮件</a>
+            </li>
+        </ul>
+        <div class="about">
+            {% get_flatpages '/about/' as about_pages %}
+            {% for page in about_pages  %}
+                <a href="{{ page.url }}">{{ page.title }}</a>
+                {% if not forloop.last %} | {% endif %}
+            {% endfor %}
+        </div>
+        <div class="copyright">&copy; 2011-{% now "Y" %} 成都九柚时空科技有限公司</div>
+        <div class="beian">蜀ICP备20130211号</div>
+    </div>
+</div>

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    {% drilldown_tree_for_node article.topic as topics %}
+    <ol class="breadcrumb">
+        <li>
+            <a href="/">首页</a>
+        </li>
+        {% for topic in topics %}
+        <li>
+            <a href="{{ topic.get_absolute_url }}">{{ topic.title }}</a>
+        </li>
+        {% endfor %}
+        <li class="active">{{ article.title }}</li>
+    </ol>
+    <h1>{{ article.title }}</h1>
+    <ul class="topics">
+        {% for topic in topics %}
+            <li><a href="{{ topic.get_absolute_url }}">{{ topic.name }}</a></li>
+        {% endfor %}
+    </ul>
+    <div class="content">
+        {{ article.body|safe }}
+    </div>
+{% endblock %}
